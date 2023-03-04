@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Demo\DemoController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,8 +25,13 @@ Route::controller(DemoController::class)->group(function(){
     Route::get('/contact', 'contactMethod')->name('contact.page');
 });
 
+//All routes of Admin
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+});
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
