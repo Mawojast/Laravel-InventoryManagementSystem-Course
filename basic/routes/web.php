@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::controller(HomeSliderController::class)->group(function(){
+    Route::get('/home/slide', 'homeSlider')->name('home.slide');
+    Route::post('/update/slider', 'updateSlider')->name('update.slider');
 });
 
 require __DIR__.'/auth.php';
