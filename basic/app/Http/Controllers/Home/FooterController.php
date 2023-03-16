@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Models\Footer;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-
+use App\Models\Footer;
 class FooterController extends Controller
 {
     //
