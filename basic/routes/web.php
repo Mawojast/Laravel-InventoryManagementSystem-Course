@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
+use App\Http\Controllers\Home\FooterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,6 +97,11 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('/blog/details/{id}', 'blogDetails')->name('blog.details');
     Route::get('/category/blog/{id}', 'categoryBlog')->name('category.blog');
     Route::get('/home/blog/', 'homeBlog')->name('home.blog');
+});
+
+Route::controller(FooterController::class)->group(function(){
+    Route::get('footer/setup', 'footerSetup')->name('footer.setup');
+    Route::post('update/footer', 'updateFooter')->name('update.footer');
 });
 
 require __DIR__.'/auth.php';
