@@ -16,4 +16,8 @@ class DemoController extends Controller
 
         return view('contact');
     }
+
+    public function homeMain() {
+        return view('frontend.index');
+    }
 }

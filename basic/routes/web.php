@@ -23,25 +23,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('frontend.index');
-});
-
-/*Route::controller(DemoController::class)->group(function(){
-    Route::get('/about', 'index')->name('about.page')->middleware('check');
-    Route::get('/contact', 'contactMethod')->name('contact.page');
 });*/
 
-//All routes of Admin
-Route::controller(AdminController::class)->group(function(){
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'profile')->name('admin.profile');
-    Route::get('/edit/profile', 'editProfile')->name('edit.profile');
-    Route::post('/store/profile', 'storeProfile')->name('store.profile');
-    Route::get('/change/password', 'changePassword')->name('change.password');
-    Route::post('/update/password', 'updatePassword')->name('update.password');
+Route::controller(DemoController::class)->group(function(){
+    //Route::get('/about', 'index')->name('about.page')->middleware('check');
+    //Route::get('/contact', 'contactMethod')->name('contact.page');
+    Route::get('/', 'homeMain')->name('home');
 });
 
+
+//All routes of Admin
+
+Route::middleware(['auth'])->group(function(){
+    
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/logout', 'destroy')->name('admin.logout');
+        Route::get('/admin/profile', 'profile')->name('admin.profile');
+        Route::get('/edit/profile', 'editProfile')->name('edit.profile');
+        Route::post('/store/profile', 'storeProfile')->name('store.profile');
+        Route::get('/change/password', 'changePassword')->name('change.password');
+        Route::post('/update/password', 'updatePassword')->name('update.password');
+    });
+    
+});
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -76,6 +82,7 @@ Route::controller(PortfolioController::class)->group(function(){
     Route::get('/edit/portfolio/{id}', 'editPortfolio')->name('edit.portfolio');
     Route::get('/delete/portfolio/{id}', 'deletePortfolio')->name('delete.portfolio');
     Route::get('/portfolio/details/{id}', 'portfolioDetails')->name('portfolio.details');
+    Route::get('/portfolio', 'homePortfolio')->name('home.portfolio');
     Route::post('/update/portfolio', 'updatePortfolio')->name('update.portfolio');
 });
 
