@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Rasalina - Personal Portfolio HTML Template</title>
+        <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,12 +43,12 @@
         <!-- main-area -->
         <main>
 
-            
+        @yield('main')    
 
         </main>
         <!-- main-area-end -->
 
-        @yield('main')
+        
 
         <!-- Footer-area -->
         @include('frontend.body.footer')
