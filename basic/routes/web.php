@@ -10,6 +10,7 @@ use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
+use App\Http\Controllers\Pos\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -117,6 +118,15 @@ Route::controller(ContactController::class)->group(function(){
     Route::get('/delete/message/{id}', 'deleteMessage')->name('delete.message');
     Route::post('/store/message', 'storeMessage')->name('store.message');
     Route::get('/contact/message', 'contactMessage')->name('contact.message');
+});
+
+Route::controller(SupplierController::class)->group(function(){
+    Route::get('/supplier/all', 'supplierAll')->name('supplier.all');
+    Route::get('/supplier/add', 'supplierAdd')->name('supplier.add');
+    Route::post('/supplier/store', 'supplierStore')->name('supplier.store');
+    Route::get('/supplier/edit/{id}', 'supplierEdit')->name('supplier.edit');
+    Route::get('/supplier/delete/{id}', 'supplierDelete')->name('supplier.delete');
+    Route::post('/supplier/update', 'supplierUpdate')->name('supplier.update');
 });
 
 require __DIR__.'/auth.php';
