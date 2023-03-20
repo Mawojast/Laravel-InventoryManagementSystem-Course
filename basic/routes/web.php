@@ -11,6 +11,7 @@ use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -127,6 +128,15 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/supplier/edit/{id}', 'supplierEdit')->name('supplier.edit');
     Route::get('/supplier/delete/{id}', 'supplierDelete')->name('supplier.delete');
     Route::post('/supplier/update', 'supplierUpdate')->name('supplier.update');
+});
+
+Route::controller(CustomerController::class)->group(function(){
+    Route::get('/customer/all', 'customerAll')->name('customer.all');
+    Route::get('/customer/add', 'customerAdd')->name('customer.add');
+    Route::get('/customer/edit/{id}', 'customerEdit')->name('customer.edit');
+    Route::post('/customer/store', 'customerStore')->name('customer.store');
+    Route::post('/customer/update', 'customerUpdate')->name('customer.update');
+    Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
 });
 
 require __DIR__.'/auth.php';
