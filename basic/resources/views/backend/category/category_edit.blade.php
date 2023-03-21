@@ -10,22 +10,22 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">Edit Unit Page</h4><br>
+            <h4 class="card-title">Edit Cateogry Page</h4><br>
 
-            <form method="post" action="{{ route('unit.update')}}" id="myForm">
+            <form method="post" action="{{ route('category.update')}}" id="myForm">
                 @csrf
 
-                <input type="hidden" name="id" value="{{ $unit->id }}">
+                <input type="hidden" name="id" value="{{ $category->id }}">
 
                 <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label" >Unit Name</label>
+                    <label for="example-text-input" class="col-sm-2 col-form-label" >Category Name</label>
                     <div class="col-sm-10 form-group">
-                        <input name="name" class="form-control" type="text" value="{{$unit->name}}">
+                        <input name="name" class="form-control" type="text" value="{{$category->name}}">
                     </div>
                 </div>
                 <!-- end row -->
 
-                <input type="submit" class="btn btn-info waves-effect waves-light" value="Edit Unit">
+                <input type="submit" class="btn btn-info waves-effect waves-light" value="Edit Category">
             </form>
         </div>
     </div>
