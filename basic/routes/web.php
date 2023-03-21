@@ -14,6 +14,7 @@ use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -158,5 +159,15 @@ Route::controller(CategoryController::class)->group(function(){
     Route::post('/category/update', 'categoryUpdate')->name('category.update');
     Route::get('/category/delete/{id}', 'categoryDelete')->name('category.delete');
 });
+
+Route::controller(ProductController::class)->group(function(){
+    Route::get('/product/all', 'productAll')->name('product.all');
+    Route::get('/product/add', 'productAdd')->name('product.add');
+    Route::post('/product/store', 'productStore')->name('product.store');
+    Route::get('/product/edit/{id}', 'productEdit')->name('product.edit');
+    Route::post('/product/update', 'productUpdate')->name('product.update');
+    Route::get('/product/delete/{id}', 'productDelete')->name('product.delete');
+});
+
 
 require __DIR__.'/auth.php';
