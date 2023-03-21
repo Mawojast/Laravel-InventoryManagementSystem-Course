@@ -15,6 +15,7 @@
             <form method="post" action="{{ route('unit.store')}}" id="myForm">
                 @csrf
 
+
                 <div class="row mb-3">
                     <label for="example-text-input" class="col-sm-2 col-form-label">Unit Name</label>
                     <div class="col-sm-10 form-group">
@@ -41,12 +42,13 @@
             rules: {
                 name: {
                     required : true,
-                },  
+                },
             },
             messages :{
                 name: {
                     required : 'Please Enter Name',
                 },
+            },
             errorElement : 'span', 
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');

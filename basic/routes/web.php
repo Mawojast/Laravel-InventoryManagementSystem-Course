@@ -12,6 +12,7 @@ use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\UnitController;
 use Illuminate\Support\Facades\Route;
 
@@ -147,6 +148,15 @@ Route::controller(UnitController::class)->group(function(){
     Route::get('/unit/edit/{id}', 'unitEdit')->name('unit.edit');
     Route::post('/unit/update', 'unitUpdate')->name('unit.update');
     Route::get('/unit/delete/{id}', 'unitDelete')->name('unit.delete');
+});
+
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('/categoryt/all', 'categoryAll')->name('category.all');
+    Route::get('/category/add', 'categoryAdd')->name('category.add');
+    Route::post('/category/store', 'categoryStore')->name('category.store');
+    Route::get('/category/edit/{id}', 'categoryEdit')->name('category.edit');
+    Route::post('/category/update', 'categoryUpdate')->name('category.update');
+    Route::get('/category/delete/{id}', 'categoryDelete')->name('category.delete');
 });
 
 require __DIR__.'/auth.php';
