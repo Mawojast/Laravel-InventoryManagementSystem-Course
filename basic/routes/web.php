@@ -12,6 +12,7 @@ use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\UnitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -137,6 +138,15 @@ Route::controller(CustomerController::class)->group(function(){
     Route::post('/customer/store', 'customerStore')->name('customer.store');
     Route::post('/customer/update', 'customerUpdate')->name('customer.update');
     Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
+});
+
+Route::controller(UnitController::class)->group(function(){
+    Route::get('/unit/all', 'unitAll')->name('unit.all');
+    Route::get('/unit/add', 'unitAdd')->name('unit.add');
+    Route::post('/unit/store', 'unitStore')->name('unit.store');
+    Route::get('/unit/edit/{id}', 'unitEdit')->name('unit.edit');
+    Route::post('/unit/update', 'unitUpdate')->name('unit.update');
+    Route::get('/unit/delete/{id}', 'unitDelete')->name('unit.delete');
 });
 
 require __DIR__.'/auth.php';
