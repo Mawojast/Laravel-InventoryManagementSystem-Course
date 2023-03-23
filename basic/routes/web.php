@@ -15,6 +15,8 @@ use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\ProductController;
+use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\DefaultController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -167,6 +169,21 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/product/edit/{id}', 'productEdit')->name('product.edit');
     Route::post('/product/update', 'productUpdate')->name('product.update');
     Route::get('/product/delete/{id}', 'productDelete')->name('product.delete');
+});
+
+Route::controller(PurchaseController::class)->group(function(){
+    Route::get('/purchase/all', 'purchaseAll')->name('purchase.all');
+    Route::get('/purchase/add', 'purchaseAdd')->name('purchase.add');
+    Route::get('/purchase/delete/{id}', 'purchaseDelete')->name('purchase.delete');
+    Route::get('/purchase/approve/{id}', 'purchaseApprove')->name('purchase.approve');
+    Route::get('/purchase/pending', 'purchasePending')->name('purchase.pending');
+    Route::post('/purchase/store', 'PurchaseStore')->name('purchase.store');
+
+});
+
+Route::controller(DefaultController::class)->group(function(){
+    Route::get('/get-category', 'getCategory')->name('get-category');
+    Route::get('/get-product', 'getProduct')->name('get-product'); 
 });
 
 
