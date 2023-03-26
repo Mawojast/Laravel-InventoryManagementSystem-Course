@@ -16,6 +16,7 @@ use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\DefaultController;
 use Illuminate\Support\Facades\Route;
 
@@ -184,7 +185,12 @@ Route::controller(PurchaseController::class)->group(function(){
 Route::controller(DefaultController::class)->group(function(){
     Route::get('/get-category', 'getCategory')->name('get-category');
     Route::get('/get-product', 'getProduct')->name('get-product'); 
+    Route::get('/check-product', 'getStock')->name('check-product-stock'); 
 });
 
-
+Route::controller(InvoiceController::class)->group(function(){
+    Route::get('/invoice/all', 'invoiceAll')->name('invoice.all');
+    Route::get('/invoice/add', 'invoiceAdd')->name('invoice.add');
+    Route::post('/invoice/store', 'invoiceStore')->name('invoice.store');
+});
 require __DIR__.'/auth.php';

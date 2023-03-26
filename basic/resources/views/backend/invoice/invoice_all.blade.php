@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Unit All</h4>
+                                    <h4 class="mb-sm-0">Invoice All</h4>
 
 
                                 </div>
@@ -20,30 +20,34 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="{{route('unit.add')}}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle">Add Unit</i></a><br><br>
+                                        <a href="{{route('invoice.add')}}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle">Add Invoice</i></a><br><br>
         
-                                        <h4 class="card-title">Unit All Data</h4>
+                                        <h4 class="card-title">Invoice All Data</h4>
         
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
-                                                <th width="5%">Sl</th>
-                                                <th>Name</th>
-                                                <th width="20%">Action</th>>
+                                                <th>Sl</th>
+                                                <th>Customer Name</th>
+                                                <th>Invoice No</th>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>>
                                             </tr>
                                             </thead>
         
         
                                             <tbody>
                                                 @php($i = 1)
-                                                @foreach($units as $key => $item)
+                                                @foreach($allData as $key => $item)
                                             <tr>
                                                 <td>{{$key + 1}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>
-                                                    <a href="{{ route('unit.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                                    <a href="{{ route('unit.delete', $item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
+                                                <td> {{ $item['payment']['customer']['name'] }}</td>
+                                                <td>{{ $item->invoice_no }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($item->date)) }}</td>
+                                                <td>{{ $item->description }}</td>
+                                                <td> {{ $item['payment']['total_amount'] }}</td>
+                                            
                                             </tr>
                                                 @endforeach
                                             </tbody>
