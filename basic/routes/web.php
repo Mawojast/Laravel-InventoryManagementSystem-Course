@@ -191,6 +191,8 @@ Route::controller(DefaultController::class)->group(function(){
 Route::controller(InvoiceController::class)->group(function(){
     Route::get('/invoice/all', 'invoiceAll')->name('invoice.all');
     Route::get('/invoice/add', 'invoiceAdd')->name('invoice.add');
+    Route::get('/invoice/delete/{id}', 'invoiceDelete')->name('invoice.delete');
+    Route::get('/invoice/pending/list', 'pendingList')->name('invoice.pending.list');
     Route::post('/invoice/store', 'invoiceStore')->name('invoice.store');
 });
 require __DIR__.'/auth.php';
