@@ -87,6 +87,7 @@
                                     <li><a href="{{route('invoice.all')}}">All Invoice</a></li>
                                     <li><a href="{{route('invoice.pending.list')}}">Approved Invoice</a></li>
                                     <li><a href="{{route('print.invoice.list')}}">Print Invoice List</a></li>
+                                    <li><a href="{{route('daily.invoice.report')}}">Daily Invoice Reportt</a></li>
                                 </ul>
                             </li>
 
