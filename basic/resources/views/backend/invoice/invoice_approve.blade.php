@@ -53,6 +53,7 @@
                                         </table>
 
                                         <form method="post" action="{{ route('approval.store', $invoice->id) }}">
+                                            @csrf
                                             <table border="1" class="table table-dark" width="100%" >
                                                 <thead>
                                                     <tr>

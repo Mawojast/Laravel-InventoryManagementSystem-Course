@@ -194,7 +194,9 @@ Route::controller(InvoiceController::class)->group(function(){
     Route::get('/invoice/delete/{id}', 'invoiceDelete')->name('invoice.delete');
     Route::get('/invoice/approve/{id}', 'invoiceApprove')->name('invoice.approve');
     Route::post('/approval/store/{id}', 'approvalStore')->name('approval.store');
+    Route::get('/print/invoice/list', 'printInvoiceList')->name('print.invoice.list');
     Route::get('/invoice/pending/list', 'pendingList')->name('invoice.pending.list');
+    Route::get('/print/invoice/{id}', 'printInvoice')->name('print.invoice');
     Route::post('/invoice/store', 'invoiceStore')->name('invoice.store');
 });
 require __DIR__.'/auth.php';

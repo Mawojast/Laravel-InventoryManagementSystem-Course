@@ -30,6 +30,11 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" >
         <!-- Select 2-->
         <link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <style>
+            .row {
+                border: 1px solid black;
+            }
+        </style>
     </head>
 
     <body data-topbar="dark">
