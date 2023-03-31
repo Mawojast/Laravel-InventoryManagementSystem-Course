@@ -208,5 +208,6 @@ Route::controller(StockController::class)->group(function(){
     Route::get('/stock/report/pdf', 'stockReportPdf')->name('stock.report.pdf');
     Route::get('/stock/supplier/wise', 'stockSupplierWise')->name('stock.supplier.wise');
     Route::get('/supplier/wise/pdf', 'supplierWisePdf')->name('supplier.wise.pdf');
+    Route::get('/product/wise/pdf', 'productWisePdf')->name('product.wise.pdf');
 });
 require __DIR__.'/auth.php';
