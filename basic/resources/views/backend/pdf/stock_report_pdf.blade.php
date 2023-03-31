@@ -80,6 +80,8 @@
                                                                     <td><strong>Unit</strong></td>
                                                                     <td><strong>Category</strong></td>
                                                                     <td><strong>Product Name</strong></td>
+                                                                    <td><strong>In Qty</strong></td>
+                                                                    <td><strong>Out Qty</strong></td>
                                                                     <td><strong>Stock</strong></td>
                                                                 </tr>
                                                                 </thead>
@@ -89,13 +91,18 @@
                                                                 @endphp
 
                                                                 @foreach($allData as $key => $item)
-
+                                                                @php
+                                                                $buying_total = App\Models\Purchase::where('category_id', $item->category_id)->where('product_id', $item->id)->where('status', 1)->sum('buying_qty');
+                                                                $selling_total = App\Models\InvoiceDetail::where('category_id', $item->category_id)->where('product_id', $item->id)->where('status', 1)->sum('selling_qty');
+                                                                @endphp
                                                                 <tr>
                                                                     <td>{{ $key++ }}</td>
                                                                     <td>{{ $item['supplier']['name'] }}</td>
                                                                     <td>{{ $item['unit']['name'] }}</td>
                                                                     <td>{{ $item['category']['name'] }}</td>
                                                                     <td>{{ $item->name }}</td>
+                                                                    <td> {{ $buying_total }}></td>
+                                                                    <td>{{ $selling_total }}</td>
                                                                     <td>{{ $item->quantity }}</td>
                                                                 </tr>
                                                                 @endforeach
