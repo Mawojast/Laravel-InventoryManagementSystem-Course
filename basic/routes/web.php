@@ -57,6 +57,8 @@ Route::middleware(['auth'])->group(function(){
     });
     
 });
+
+
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -144,6 +146,8 @@ Route::controller(CustomerController::class)->group(function(){
     Route::post('/customer/store', 'customerStore')->name('customer.store');
     Route::post('/customer/update', 'customerUpdate')->name('customer.update');
     Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
+    Route::get('/credit/customer', 'creditCustomer')->name('credit.customer');
+    Route::get('/credit/customer/print/pdf', 'creditCustomerPrintPdf')->name('credit.customer.print.pdf');
 });
 
 Route::controller(UnitController::class)->group(function(){
@@ -180,6 +184,8 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/purchase/approve/{id}', 'purchaseApprove')->name('purchase.approve');
     Route::get('/purchase/pending', 'purchasePending')->name('purchase.pending');
     Route::post('/purchase/store', 'PurchaseStore')->name('purchase.store');
+    Route::get('/daily/purchase/report', 'dailyPurchaseReport')->name('daily.purchase.report');
+    Route::get('/daily/purchase/pdf', 'dailyPurchasePdf')->name('daily.purchase.pdf');
 
 });
 
