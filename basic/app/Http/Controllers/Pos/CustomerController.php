@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Pos;
 
 use App\Http\Controllers\Controller;
+//use Faker\Provider\Payment;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use Auth;
 use Illuminate\Support\Carbon;
 use Image;
+use App\Models\Payment;
 class CustomerController extends Controller
 {
     public function customerAll() {
@@ -123,5 +125,17 @@ class CustomerController extends Controller
 
         return redirect()->back()->with($notification);
 
+    }
+
+    public function creditCustomer() {
+
+        $allData = Payment::whereIn('paid_status',['full_due','partial_paid'])->get();
+        return view('backend.customer.customer_credit',compact('allData'));
+    }
+
+    public function creditCustomerPrintPdf() {
+
+        $allData = Payment::whereIn('paid_status',['full_due','partial_paid'])->get();
+        return view('backend.pdf.customer_credit_pdf',compact('allData'));
     }
 }

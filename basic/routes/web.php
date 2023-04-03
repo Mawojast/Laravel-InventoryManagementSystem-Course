@@ -146,6 +146,8 @@ Route::controller(CustomerController::class)->group(function(){
     Route::post('/customer/store', 'customerStore')->name('customer.store');
     Route::post('/customer/update', 'customerUpdate')->name('customer.update');
     Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
+    Route::get('/credit/customer', 'creditCustomer')->name('credit.customer');
+    Route::get('/credit/customer/print/pdf', 'creditCustomerPrintPdf')->name('credit.customer.print.pdf');
 });
 
 Route::controller(UnitController::class)->group(function(){
