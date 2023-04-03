@@ -57,6 +57,8 @@ Route::middleware(['auth'])->group(function(){
     });
     
 });
+
+
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -180,6 +182,8 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/purchase/approve/{id}', 'purchaseApprove')->name('purchase.approve');
     Route::get('/purchase/pending', 'purchasePending')->name('purchase.pending');
     Route::post('/purchase/store', 'PurchaseStore')->name('purchase.store');
+    Route::get('/daily/purchase/report', 'dailyPurchaseReport')->name('daily.purchase.report');
+    Route::get('/daily/purchase/pdf', 'dailyPurchasePdf')->name('daily.purchase.pdf');
 
 });
 
