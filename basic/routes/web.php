@@ -143,10 +143,12 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('/customer/all', 'customerAll')->name('customer.all');
     Route::get('/customer/add', 'customerAdd')->name('customer.add');
     Route::get('/customer/edit/{id}', 'customerEdit')->name('customer.edit');
+    Route::post('/customer/update/invoice/{id}', 'customerUpdateInvoice')->name('customer.update.invoice');
     Route::post('/customer/store', 'customerStore')->name('customer.store');
     Route::post('/customer/update', 'customerUpdate')->name('customer.update');
     Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
     Route::get('/credit/customer', 'creditCustomer')->name('credit.customer');
+    Route::get('/customer/edit/invoice/{invoice_id}', 'customerEditInvoice')->name('customer.edit.invoice');
     Route::get('/credit/customer/print/pdf', 'creditCustomerPrintPdf')->name('credit.customer.print.pdf');
 });
 
