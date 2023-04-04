@@ -148,6 +148,9 @@ Route::controller(CustomerController::class)->group(function(){
     Route::post('/customer/update', 'customerUpdate')->name('customer.update');
     Route::get('/customer/delete/{id}', 'customerDelete')->name('customer.delete');
     Route::get('/paid/customer', 'paidCustomer')->name('paid.customer');
+    Route::get('/customer/wise/report', 'customerWiseReport')->name('customer.wise.report');
+    Route::get('/customer/wise/credit/report', 'customerWiseCreditReport')->name('customer.wise.credit.report');
+    Route::get('/customer/wise/paid/report', 'customerWisePaidReport')->name('customer.wise.paid.report');
     Route::get('/paid/customer/print/pdf', 'paidCustomerPrintPdf')->name('paid.customer.print.pdf');
     Route::get('/credit/customer', 'creditCustomer')->name('credit.customer');
     Route::get('/customer/edit/invoice/{invoice_id}', 'customerEditInvoice')->name('customer.edit.invoice');
