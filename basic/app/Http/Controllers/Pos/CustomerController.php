@@ -179,7 +179,7 @@ class CustomerController extends Controller
             $payment_details->save();
 
             $notification = array(
-                'message' => 'Invoice Update Successfully', 
+                'message' => 'Invoice Updated Successfully', 
                 'alert-type' => 'success'
             );
 
